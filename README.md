@@ -29,9 +29,9 @@ Once you run the above command it will invoke frontend and backend server and th
 A user can add or remove items to their cart once logged in. Payments are handled by Stripe. Once a transaction is complete the user can also view  their order history to see their previous transactions.
 
 ## Demo
-<img src="./client/public/imgs/homepage.png" alt="homepage" style="height: 40rem ; width:40 rem;"/>
-<img src="./client/public/imgs/checkout.png" alt="checkout" style="height: 40rem ; width:40 rem;"/>
-<img src="./client/public/imgs/orderHistory.png" alt="order history" style="height: 40rem ; width:40 rem;"/>
+<img src="./client/public/imgs/homepage.png" alt="homepage"/>
+<img src="./client/public/imgs/checkout.png" alt="checkout"/>
+<img src="./client/public/imgs/orderHistory.png" alt="order history"/>
 
 ## Deployment
 - [Deployed Application](https://pure-falls-11898.herokuapp.com/)
