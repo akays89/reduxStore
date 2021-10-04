@@ -1,4 +1,4 @@
-import { useReducer } from 'react';
+
 import {
   UPDATE_PRODUCTS,
   ADD_TO_CART,
@@ -11,8 +11,16 @@ import {
   TOGGLE_CART,
 } from './actions';
 
+const initialState = {
+  products: [],
+  cart: [],
+  cartOpen: false,
+  categories: [],
+  currentCategory: '',
+};
+
 // The reducer is a function that accepts the current state and an action. It returns a new state based on that action.
-export const reducer = (state, action) => {
+export const reducer = (state = initialState, action) => {
   switch (action.type) {
     // Returns a copy of state with an update products array. We use the action.products property and spread it's contents into the new array.
     case UPDATE_PRODUCTS:
@@ -38,7 +46,7 @@ export const reducer = (state, action) => {
       return {
         ...state,
         cartOpen: true,
-        cart: state.cart.map((product) => {
+        cart: state.cart.map(product => {
           if (action._id === product._id) {
             product.purchaseQuantity = action.purchaseQuantity;
           }
@@ -49,7 +57,7 @@ export const reducer = (state, action) => {
     // First we iterate through each item in the cart and check to see if the `product._id` matches the `action._id`
     // If so, we remove it from our cart and set the updated state to a variable called `newState`
     case REMOVE_FROM_CART:
-      let newState = state.cart.filter((product) => {
+      let newState = state.cart.filter(product => {
         return product._id !== action._id;
       });
 
@@ -93,6 +101,4 @@ export const reducer = (state, action) => {
   }
 };
 
-export function useProductReducer(initialState) {
-  return useReducer(reducer, initialState);
-}
+export default reducer;
